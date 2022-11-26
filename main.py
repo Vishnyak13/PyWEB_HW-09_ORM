@@ -1,6 +1,7 @@
+from sqlalchemy.exc import SQLAlchemyError
+
 from database.seed import create_fake_contacts, add_contact, get_contact_by_id, get_all_contacts, update_contact, \
     delete_contact, add_phone, add_email, add_address
-from sqlalchemy.exc import SQLAlchemyError
 
 
 def match_case(choice):
@@ -21,6 +22,8 @@ def match_case(choice):
                 add_phone(int(input('Enter id: ')), input('Enter phone number: '))
             case 7:
                 add_email(int(input('Enter id: ')), input('Enter email address: '))
+            case 8:
+                add_address(int(input('Enter id: ')), input('Enter address: '))
     except SQLAlchemyError as e:
         print(e)
 
