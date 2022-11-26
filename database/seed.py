@@ -1,7 +1,6 @@
 import random
 import datetime
 from faker import Faker
-from sqlalchemy import update
 from sqlalchemy.orm import joinedload
 
 from database.create_db import session
@@ -41,7 +40,7 @@ def get_contact_by_id(contact_id):
     phone_numbers = ', '.join([phone.phone_number for phone in contact.phone]) if contact.phone else 'No phone number'
     email_addresses = ', '.join([email.email_address for email in contact.email]) if contact.email else 'No email'
     return (
-        f"Contact: {contact.full_name}, Address {contact.address},"
+        f"Contact: {contact.full_name}, Address: {contact.address},"
         f" Phone: {phone_numbers}"
         f" and Email: {email_addresses}"
         f" was created at {contact.created_at}")
