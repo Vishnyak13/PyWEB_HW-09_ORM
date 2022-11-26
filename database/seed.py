@@ -24,6 +24,7 @@ def create_fake_contacts(count: int) -> None:
             email = Email(email_address=fake.email(), contact_id=contact.id)
             session.add(email)
             session.commit()
+    print(f"{count} fake contacts were added in database")
 
 
 def add_contact(first_name: str, last_name: str, address: str) -> None:
@@ -31,6 +32,7 @@ def add_contact(first_name: str, last_name: str, address: str) -> None:
                       created_at=datetime.date.today())
     session.add(contact)
     session.commit()
+    print(f"Contact {contact.full_name} was added")
 
 
 def get_contact_by_id(contact_id):
@@ -97,4 +99,13 @@ def add_email(contact_id, email_address):
         session.add(email)
         session.commit()
         return f"Email {email_address} was added to contact {contact.full_name}"
+    return f"Contact with id {contact_id} not found"
+
+
+def add_address(contact_id, address):
+    contact = session.query(Contact).filter(Contact.id == contact_id).first()
+    if contact:
+        contact.address = address
+        session.commit()
+        return f"Address {address} was added to contact {contact.full_name}"
     return f"Contact with id {contact_id} not found"
