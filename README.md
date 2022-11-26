@@ -1,2 +1,7 @@
 # PyWEB_HW-09_ORM
-Home work #9 - Personal assistant implementation using SQLAlchemy and Alembic models
+## Home work #9 - Personal assistant implementation using SQLAlchemy and Alembic models
+Реалізуйте зберігання інформації для вашого "Персонального помічника" в базі даних SQLite. Реалізуйте зберігання книги контактів з email адресами, телефонами, іменами в базі даних.
+## Критерії приймання
+ - база даних описується за допомогою SQLAlchemy моделей;
+ - таблиці в базі даних створюються та змінюються за допомогою Alembic;
+ - пошук необхідної інформації відбувається за допомогою запитів до бази даних;
