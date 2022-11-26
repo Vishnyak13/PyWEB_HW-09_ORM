@@ -1,5 +1,5 @@
 from database.seed import create_fake_contacts, add_contact, get_contact_by_id, get_all_contacts, update_contact, \
-    delete_contact, add_phone, add_email
+    delete_contact, add_phone, add_email, add_address
 from sqlalchemy.exc import SQLAlchemyError
 
 
@@ -34,11 +34,12 @@ def run():
             print('3. Add contact')
             print('4. Update contact')
             print('5. Delete contact')
-            print('6. Add phone number')
-            print('7. Add email address')
-            print('8. Exit')
+            print('6. Add phone number to contact')
+            print('7. Add email address to contact')
+            print('8. Add address to contact')
+            print('9. Exit')
             choice = int(input('Enter choice: '))
-            if choice == 8:
+            if choice == 9:
                 print('Goodbye')
                 break
             match_case(choice)
