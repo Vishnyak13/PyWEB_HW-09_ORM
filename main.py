@@ -2,6 +2,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from database.seed import create_fake_contacts, add_contact, get_contact_by_id, get_all_contacts, update_contact, \
     delete_contact, add_phone, add_email, add_address
+from styles import *
 
 
 def match_case(choice):
@@ -25,34 +26,34 @@ def match_case(choice):
             case 8:
                 print(add_address(int(input('Enter id: ')), input('Enter address: ')))
     except SQLAlchemyError as e:
-        print(e)
+        error_text(e)
 
 
 def run():
     try:
         while True:
-            print('What do you want to do?')
-            print('1. Get all contacts')
-            print('2. Get contact by id')
-            print('3. Add contact')
-            print('4. Update contact')
-            print('5. Delete contact')
-            print('6. Add phone number to contact')
-            print('7. Add email address to contact')
-            print('8. Add address to contact')
-            print('9. Exit')
+            title_text('What do you want to do?')
+            option_text('1. Get all contacts')
+            option_text('2. Get contact by id')
+            option_text('3. Add contact')
+            option_text('4. Update contact')
+            option_text('5. Delete contact')
+            option_text('6. Add phone number to contact')
+            option_text('7. Add email address to contact')
+            option_text('8. Add address to contact')
+            option_text('9. Exit')
             choice = int(input('Enter choice: '))
             if choice == 9:
                 print('Goodbye')
                 break
             match_case(choice)
     except ValueError:
-        print('Please enter a number')
+        error_text('Please enter a number')
         run()
 
 
 def main():
-    print('Welcome to Address Book')
+    title_text('Welcome to Address Book')
     print('Do you want to create fake contacts? (y/n)')
     if input('>>>: ') == 'y':
         try:
@@ -60,7 +61,7 @@ def main():
             create_fake_contacts(int(input('Enter count: ')))
             run()
         except SQLAlchemyError as e:
-            print(e)
+            error_text(e)
     else:
         print('Ok, no fake contacts')
         run()

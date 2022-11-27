@@ -54,7 +54,7 @@ def get_all_contacts():
             [phone.phone_number for phone in contact.phone]) if contact.phone else 'No phone number'
         email_addresses = ', '.join([email.email_address for email in contact.email]) if contact.email else 'No email'
         contacts_list.append(
-            f"Contact: {contact.full_name}, Address {contact.address},"
+            f"Contact: {contact.full_name}, Address: {contact.address},"
             f" Phone: {phone_numbers}"
             f" and Email: {email_addresses}"
             f" was created at {contact.created_at}")
