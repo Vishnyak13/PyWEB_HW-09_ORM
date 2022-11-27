@@ -12,18 +12,18 @@ def match_case(choice):
             case 2:
                 print(get_contact_by_id(int(input('Enter id: '))))
             case 3:
-                add_contact(input('Enter first name: '), input('Enter last name: '), input('Enter address: '))
+                print(add_contact(input('Enter first name: '), input('Enter last name: '), input('Enter address: ')))
             case 4:
-                update_contact(int(input('Enter id: ')), input('Enter first name: '), input('Enter last name: '),
-                               input('Enter address: '))
+                print(update_contact(int(input('Enter id: ')), input('Enter first name: '), input('Enter last name: '),
+                                     input('Enter address: ')))
             case 5:
-                delete_contact(int(input('Enter id: ')))
+                print(delete_contact(int(input('Enter id: '))))
             case 6:
-                add_phone(int(input('Enter id: ')), input('Enter phone number: '))
+                print(add_phone(int(input('Enter id: ')), input('Enter phone number: ')))
             case 7:
-                add_email(int(input('Enter id: ')), input('Enter email address: '))
+                print(add_email(int(input('Enter id: ')), input('Enter email address: ')))
             case 8:
-                add_address(int(input('Enter id: ')), input('Enter address: '))
+                print(add_address(int(input('Enter id: ')), input('Enter address: ')))
     except SQLAlchemyError as e:
         print(e)
 
@@ -54,7 +54,7 @@ def run():
 def main():
     print('Welcome to Address Book')
     print('Do you want to create fake contacts? (y/n)')
-    if input() == 'y':
+    if input('>>>: ') == 'y':
         try:
             print('How many contacts do you want to create?')
             create_fake_contacts(int(input('Enter count: ')))
