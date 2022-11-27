@@ -26,12 +26,12 @@ def create_fake_contacts(count: int) -> None:
     print(f"{count} fake contacts were added in database")
 
 
-def add_contact(first_name: str, last_name: str, address: str) -> None:
+def add_contact(first_name: str, last_name: str, address: str):
     contact = Contact(first_name=first_name, last_name=last_name, address=address,
                       created_at=datetime.date.today())
     session.add(contact)
     session.commit()
-    print(f"Contact {contact.full_name} was added")
+    return f"Contact {contact.full_name} was added"
 
 
 def get_contact_by_id(contact_id):
@@ -69,7 +69,8 @@ def update_contact(contact_id, first_name, last_name, address):
         contact.address = address
         session.commit()
         return f"Contact {contact.full_name} was updated"
-    return f"Contact with id {contact_id} not found"
+    else:
+        return f"Contact with id {contact_id} not found"
 
 
 def delete_contact(contact_id):
@@ -78,7 +79,8 @@ def delete_contact(contact_id):
         session.delete(contact)
         session.commit()
         return f"Contact {contact.full_name} was deleted"
-    return f"Contact with id {contact_id} not found"
+    else:
+        return f"Contact with id {contact_id} not found"
 
 
 def add_phone(contact_id, phone_number):
@@ -88,7 +90,8 @@ def add_phone(contact_id, phone_number):
         session.add(phone)
         session.commit()
         return f"Phone {phone_number} was added to contact {contact.full_name}"
-    return f"Contact with id {contact_id} not found"
+    else:
+        return f"Contact with id {contact_id} not found"
 
 
 def add_email(contact_id, email_address):
@@ -98,7 +101,8 @@ def add_email(contact_id, email_address):
         session.add(email)
         session.commit()
         return f"Email {email_address} was added to contact {contact.full_name}"
-    return f"Contact with id {contact_id} not found"
+    else:
+        return f"Contact with id {contact_id} not found"
 
 
 def add_address(contact_id, address):
@@ -107,4 +111,5 @@ def add_address(contact_id, address):
         contact.address = address
         session.commit()
         return f"Address {address} was added to contact {contact.full_name}"
-    return f"Contact with id {contact_id} not found"
+    else:
+        return f"Contact with id {contact_id} not found"
